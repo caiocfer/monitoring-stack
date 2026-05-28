@@ -1,0 +1,23 @@
+apiVersion: v2
+name: monitoring-stack
+type: application
+version: 1.0.0
+appVersion: "1.0"
+dependencies:
+  # VictoriaStack
+  - name: victoria-metrics-cluster
+    version: "0.38.0"
+    repository: https://victoriametrics.github.io/helm-charts/
+  - name: victoria-metrics-agent
+    version: "0.36.0"
+    repository: "https://victoriametrics.github.io/helm-charts/"
+  - name: victoria-logs-single
+    version: "0.12.0"
+    repository: "https://victoriametrics.github.io/helm-charts/"
+  - name: victoria-logs-collector
+    version: "0.3.0"
+    repository: "https://victoriametrics.github.io/helm-charts/"
+  # Grafana
+  - name: grafana
+    version: "12.4.1"
+    repository: "https://grafana-community.github.io/helm-charts"
