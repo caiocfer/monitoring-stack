@@ -160,6 +160,10 @@ victoria-metrics-agent:
             target_label: namespace
           - source_labels: [__meta_kubernetes_service_name]
             target_label: service
+      - job_name: 'argocd-server-metrics'
+        scrape_interval: 60s
+        static_configs:
+          - targets: ['argocd-server-metrics.argocd.svc.cluster.local:8083']
 victoria-logs-single:
   nameOverride: "vls"
   server:
@@ -170,7 +174,6 @@ victoria-logs-collector:
   nameOverride: "vlc"  
   remoteWrite:
       - url: "http://monitoring-stack-vls-server:9428"
-
 grafana:
   additionalDataSources:
     - name: VictoriaMetrics
