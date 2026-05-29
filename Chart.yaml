@@ -21,3 +21,7 @@ dependencies:
   - name: grafana
     version: "12.4.1"
     repository: "https://grafana-community.github.io/helm-charts"
+  # Gpu Exporter
+  - name: gpu-exporter
+    version: "0.1.5"
+    repository: "https://caiocfer.github.io/gpu-exporter/"
