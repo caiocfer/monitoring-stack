@@ -164,6 +164,10 @@ victoria-metrics-agent:
         scrape_interval: 60s
         static_configs:
           - targets: ['argocd-server-metrics.argocd.svc.cluster.local:8083']
+      - job_name: 'gpu-exporter-metrics'
+        scrape_interval: 60s
+        static_configs:
+          - targets: ['monitoring-stack-gpu-exporter:9835']
 victoria-logs-single:
   nameOverride: "vls"
   server:
