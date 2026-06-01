@@ -179,15 +179,20 @@ victoria-logs-collector:
   remoteWrite:
       - url: "http://monitoring-stack-vls-server:9428"
 grafana:
-  additionalDataSources:
-    - name: VictoriaMetrics
-      type: prometheus
-      access: proxy
-      url: http://monitoring-stack-vmc-vmselect:8481/select/0/prometheus/
-      isDefault: true
-      jsonData:
-        httpMethod: POST
-        manageAlerts: true
+  initChownData:
+    enabled: false
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: VictoriaMetrics
+          type: prometheus
+          access: proxy
+          url: http://monitoring-stack-vmc-vmselect:8481/select/0/prometheus
+          isDefault: true
+          jsonData:
+            httpMethod: POST
+            manageAlerts: true
   persistence:
     enabled: true
     accessModes:
