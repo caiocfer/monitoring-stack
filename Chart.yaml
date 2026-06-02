@@ -25,3 +25,7 @@ dependencies:
   - name: gpu-exporter
     version: "0.1.7"
     repository: "https://caiocfer.github.io/gpu-exporter/"
+  # Node Exporter
+  - name: prometheus-node-exporter
+    version: "4.55.0"
+    repository: "https://prometheus-community.github.io/helm-charts/"

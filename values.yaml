@@ -168,6 +168,10 @@ victoria-metrics-agent:
         scrape_interval: 60s
         static_configs:
           - targets: ['monitoring-stack-gpu-exporter:9835']
+      - job_name: 'node-exporter-metrics'
+        scrape_interval: 60s
+        static_configs:
+          - targets: ['monitoring-stack-prometheus-node-exporter:9100']
 victoria-logs-single:
   nameOverride: "vls"
   server:
