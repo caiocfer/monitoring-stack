@@ -172,6 +172,11 @@ victoria-metrics-agent:
         scrape_interval: 60s
         static_configs:
           - targets: ['monitoring-stack-prometheus-node-exporter:9100']
+      - job_name: 'victorialogs'
+        scrape_interval: 60s
+        static_configs:
+          - targets:
+              - monitoring-stack-vls-server:9428
 victoria-logs-single:
   nameOverride: "vls"
   server:
