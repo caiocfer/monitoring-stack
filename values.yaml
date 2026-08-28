@@ -180,13 +180,22 @@ victoria-metrics-agent:
 victoria-logs-single:
   nameOverride: "vls"
   server:
-    retentionPeriod: 15d
+    retentionPeriod: 7d
+    service:
+      type: NodePort
+      nodePort: 30228
     persistentVolume:
       size: 5Gi
 victoria-logs-collector:
   nameOverride: "vlc"  
   remoteWrite:
       - url: "http://monitoring-stack-vls-server:9428"
+  extraArgs:
+    envflag.enable: true
+    envflag.prefix: VL_
+    loggerFormat: json
+    tmpDataPath: /var/lib/vl-collector
+    fileCollector.glob: /var/log/boot.log*,/var/log/pacman.log*,/var/log/snapper.log*,/var/log/shelly.log*,/var/log/cups/*.log,/var/log/samba/*.log
 grafana:
   initChownData:
     enabled: false
