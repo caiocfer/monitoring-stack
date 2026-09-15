@@ -29,3 +29,7 @@ dependencies:
   - name: prometheus-node-exporter
     version: "4.55.0"
     repository: "https://prometheus-community.github.io/helm-charts/"
+# Process Exporter
+  - name: system-process-exporter
+    version: "0.1.2"
+    repository: "https://caiocfer.github.io/process-exporter"

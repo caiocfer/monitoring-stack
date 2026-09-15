@@ -168,6 +168,10 @@ victoria-metrics-agent:
         scrape_interval: 60s
         static_configs:
           - targets: ['monitoring-stack-gpu-exporter:9835']
+      - job_name: 'process-exporter-metrics'
+        scrape_interval: 60s
+        static_configs:
+          - targets: ['monitoring-stack-system-process-exporter:9835']
       - job_name: 'node-exporter-metrics'
         scrape_interval: 60s
         static_configs:
